@@ -2,6 +2,18 @@ import React, { useState, useEffect } from "react"; //import state and effect
 import axios from 'axios'; //pulling from api, must import axios
 import "./App.css";
 import NasaPhoto from './Components/NasaPhoto.js'
+import styled from 'styled-components'
+
+const StyledDetails = styled.div`
+* {
+  display: flex;
+  flex-direction: row;
+}
+img {
+  max-width: 30%;
+}
+`
+
 
 function App() {
   const [data, setData] = useState();
@@ -15,9 +27,9 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <StyledDetails className="App">
   {data && <NasaPhoto photo={data} />}
-    </div>
+    </StyledDetails>
   );
 }
 
